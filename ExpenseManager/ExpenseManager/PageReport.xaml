@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="ExpenseManager.PageReport"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ExpenseManager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="10, 10, 10, 10">
+        <Grid.RowDefinitions>
+            <!-- For header menu -->
+            <RowDefinition Height="Auto" />
+            
+            <!-- For input -->
+            <RowDefinition Height="Auto" />
+            
+            <!-- For summary -->
+            <RowDefinition Height="Auto" />
+            
+            <!-- For details -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Header menu -->
+        <RelativePanel Grid.Row="0" Margin="0, 0, 0, 10">
+            <Button Name="buttonBack" RelativePanel.AlignLeftWithPanel="True" Click="buttonBack_Click" RelativePanel.AlignVerticalCenterWithPanel="True">
+                <SymbolIcon Symbol="Back" />
+            </Button>
+            <TextBlock Text="Transactions Report" FontWeight="ExtraBold" RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignVerticalCenterWithPanel="True" />
+        </RelativePanel>
+        
+        <!-- Input -->
+        <Grid Grid.Row="1" Margin="0, 0, 0, 10">
+            <Grid.RowDefinitions>
+                <!-- For input -->
+                <RowDefinition Height="Auto" />
+            
+                <!-- For summary -->
+                <RowDefinition Height="Auto" />
+            
+                <!-- For break down -->
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        
+            <!-- Input -->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <!-- Year -->
+                    <RowDefinition Height="Auto" />
+                
+                    <!-- Month -->
+                    <RowDefinition Height="Auto" />
+                
+                    <!-- Days -->
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            
+                <!-- Year -->
+                <TextBlock Text="Year" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                <ComboBox Name="comboBoxYear" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0, 0, 0, 5" SelectionChanged="comboBoxYear_SelectionChanged" />
+                
+                <!-- Month -->
+                <TextBlock Text="Month" Grid.Row="1" Grid.Column="0" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                <ComboBox Name="comboBoxMonth" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0, 0, 0, 5" SelectionChanged="comboBoxMonth_SelectionChanged" />
+                
+                <!-- Day -->
+                <TextBlock Text="Day" Grid.Row="2" Grid.Column="0" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                <ComboBox Name="comboBoxDay" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" SelectionChanged="comboBoxDay_SelectionChanged" />
+            </Grid>
+        </Grid>
+        
+        <!-- Summary -->
+        <RelativePanel Grid.Row="2" Margin="0, 0, 0, 10">
+            <TextBlock Name="textBlockIncomeLabel" RelativePanel.AlignLeftWithPanel="True" Text="Income" />
+            <TextBlock Name="textBlockExpenseLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Text="Expense" />
+            <TextBlock Name="textBlockBalanceLabel" RelativePanel.AlignRightWithPanel="True" Text="Balance" />
+
+            <TextBlock Name="textBlockIncome" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="textBlockIncomeLabel" Text="0.00" FontWeight="ExtraBold" />
+            <TextBlock Name="textBlockExpense" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="textBlockExpenseLabel" Text="0.00" FontWeight="ExtraBold" />
+            <TextBlock Name="textBlockBalance" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="textBlockBalanceLabel" Text="0.00" FontWeight="ExtraBold" />
+        </RelativePanel>
+        
+        <!-- Details -->
+        <ListView Grid.Row="3" Name="listViewSummary">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,113 @@
+﻿<Page
+    x:Class="ExpenseManager.PageMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ExpenseManager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="10, 10, 10, 10">
+        <Grid.RowDefinitions>
+            <!-- Account name and summary -->
+            <RowDefinition Height="Auto" />
+
+            <!-- Input -->
+            <RowDefinition Height="Auto" />
+
+            <!-- Transactions list -->
+            <RowDefinition Height="*" />
+            
+            <!-- Options button -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Account and and summary -->
+        <RelativePanel Grid.Row="0" Grid.Column="0" Padding="0, 0, 0, 10" >
+            <ComboBox Name="comboBoxAccount" SelectionChanged="comboBoxAccount_SelectionChanged" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="ExtraBold">
+            </ComboBox>
+            <TextBlock Name="textBlockBalance" Text="0.00" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="ExtraBold" />
+        </RelativePanel>
+        
+        <!-- Input -->
+        <Grid Grid.Row="1" Margin="0, 0, 0, 10">
+            <Grid.RowDefinitions>
+                <!-- Input for amount -->
+                <RowDefinition Height="Auto" />
+
+                <!-- Input for income or expense-->
+                <RowDefinition Height="Auto" />
+                
+                <!-- Input for category -->
+                <RowDefinition Height="Auto" />
+
+                <!-- Input for description -->
+                <RowDefinition Height="Auto" />
+                
+                <!-- Input for transfer to account -->
+                <RowDefinition Height="Auto" />
+
+                <!-- Buttons -->
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Amount -->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Amount" VerticalAlignment="Center" />
+            <TextBox Name="textBoxTransactionAmount" Grid.Row= "0" Grid.Column="1" Margin="0, 0, 0, 5" InputScope="Number" />
+
+            <!-- Income or expense -->
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Type" VerticalAlignment="Center" />
+            <ComboBox Name="comboBoxTransactionType" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0, 0, 0, 5" SelectionChanged="comboBoxTransactionType_SelectionChanged">
+                <ComboBoxItem IsSelected="True">Expense</ComboBoxItem>
+                <ComboBoxItem>Income</ComboBoxItem>
+                <ComboBoxItem>Fund Transfer</ComboBoxItem>
+            </ComboBox>
+            
+            <!-- Category -->
+            <TextBlock Name="textBlockCategory" Grid.Row="2" Grid.Column="0" Text="Category" VerticalAlignment="Center" />
+            <AutoSuggestBox Name="autoSuggestBoxCategory" Grid.Row="2" Grid.Column="1" TextChanged="autoSuggestBoxCategory_TextChanged" Margin="0, 0, 0, 5" />
+
+            <!-- Transfer to another account -->
+            <TextBlock Name="textBlockToAccount" Grid.Row="3" Grid.Column="0" Text="Transfer To" VerticalAlignment="Center" Visibility="Collapsed" Margin="0, 0, 10, 0" />
+            <ComboBox Name="comboBoxToAccount" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0, 0, 0, 5" Visibility="Collapsed">
+            </ComboBox>
+
+            <!-- Description -->
+            <TextBlock Name="textBlockDescription" Grid.Row="4" Grid.Column="0" Text="Description" VerticalAlignment="Center" Margin="0, 0, 10, 0" />
+            <AutoSuggestBox Name="autoSuggestBoxDescription" Grid.Row="4" Grid.Column="1" TextChanged="autoSuggestBoxDescription_TextChanged" Margin="0, 0, 0, 5" />
+
+            <!-- Button -->
+            <Button Name="buttonAddTransaction" Grid.Row="5" Grid.Column="1" Content="Add Transaction" Click="buttonAddTransaction_Click" />
+        </Grid>
+        
+        <!-- List View -->
+        <ListView Name="listViewTransactions" Grid.Row="2" Grid.Column="0" SelectionChanged="listViewTransactions_SelectionChanged" Margin="0, 0, 0, 10">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        
+        <!-- Options button -->
+        <RelativePanel Grid.Row="3" Grid.Column="0">
+            <Button Name="buttonSetting">
+                <SymbolIcon Symbol="Setting" />
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Name="menuFlyoutItemUpdateAccount" Click="menuFlyoutItemUpdateAccount_Click">Update Account</MenuFlyoutItem>
+                        <MenuFlyoutItem Name="menuFlyoutItemDeleteAccount" Click="menuFlyoutItemDeleteAccount_Click">Delete Account</MenuFlyoutItem>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+            <Button Name="buttonReport" RelativePanel.RightOf="buttonSetting" Click="buttonReport_Click">
+                <SymbolIcon Symbol="Document" />
+            </Button>
+            <TextBox Name="textBoxFilter" RelativePanel.AlignRightWithPanel="True" Margin="-201,0,0,0" PlaceholderText="Filter..." TextChanged="textBoxFilter_TextChanged" />
+        </RelativePanel>
+    </Grid>
+</Page>

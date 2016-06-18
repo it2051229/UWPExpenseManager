@@ -1,0 +1,2 @@
+MainPackage=C:\Users\Hp Envy\documents\visual studio 2015\Projects\ExpenseManager\ExpenseManager\bin\x64\Debug\ExpenseManager_1.0.0.0_x64_Debug.appx
+SymbolPackage=C:\Users\Hp Envy\documents\visual studio 2015\Projects\ExpenseManager\ExpenseManager\AppPackages\ExpenseManager_1.0.0.0_Debug_Test\ExpenseManager_1.0.0.0_x64_Debug.appxsym

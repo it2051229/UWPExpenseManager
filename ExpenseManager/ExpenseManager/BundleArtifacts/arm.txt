@@ -1,0 +1,6 @@
+MainPackage=C:\Users\Hp Envy\documents\visual studio 2015\Projects\ExpenseManager\ExpenseManager\bin\ARM\Debug\ExpenseManager_1.0.0.0_ARM_Debug.appx
+SymbolPackage=C:\Users\Hp Envy\documents\visual studio 2015\Projects\ExpenseManager\ExpenseManager\AppPackages\ExpenseManager_1.0.0.0_Debug_Test\ExpenseManager_1.0.0.0_ARM_Debug.appxsym
+ResourcePack=C:\Users\Hp Envy\documents\visual studio 2015\Projects\ExpenseManager\ExpenseManager\bin\ARM\Debug\ExpenseManager_1.0.0.0_scale-100.appx
+ResourcePack=C:\Users\Hp Envy\documents\visual studio 2015\Projects\ExpenseManager\ExpenseManager\bin\ARM\Debug\ExpenseManager_1.0.0.0_scale-125.appx
+ResourcePack=C:\Users\Hp Envy\documents\visual studio 2015\Projects\ExpenseManager\ExpenseManager\bin\ARM\Debug\ExpenseManager_1.0.0.0_scale-150.appx
+ResourcePack=C:\Users\Hp Envy\documents\visual studio 2015\Projects\ExpenseManager\ExpenseManager\bin\ARM\Debug\ExpenseManager_1.0.0.0_scale-400.appx

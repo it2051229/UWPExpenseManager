@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="ExpenseManager.PageAccountCreate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ExpenseManager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="10, 10, 10, 10">
+        <RelativePanel Margin="0, 0, 0, 10">
+            <Button Name="buttonBack" RelativePanel.AlignLeftWithPanel="True" Click="buttonBack_Click" RelativePanel.AlignVerticalCenterWithPanel="True">
+                <SymbolIcon Symbol="Back" />
+            </Button>
+            <TextBlock Text="New Account" FontWeight="ExtraBold" RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignVerticalCenterWithPanel="True" />
+        </RelativePanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <!-- For account name -->
+                <RowDefinition Height="Auto" />
+                
+                <!-- For initial balance -->
+                <RowDefinition Height="Auto" />
+
+                <!-- For button -->
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!-- Account Name -->
+            <TextBlock Text="Account Name" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0, 0, 10, 0" />
+            <TextBox Name="textBoxAccountName" Grid.Row="0" Grid.Column="1" Margin="0, 0, 0, 5" />
+            
+            <!-- Initial Balance -->
+            <TextBlock Text="Initial Balance" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" />
+            <TextBox Name="textBoxInitialBalance" Grid.Row="1" Grid.Column="1" Margin="0, 0, 0, 5" />
+            
+            <!-- Create button -->
+            <Button Name="buttonCreate" Grid.Row="2" Grid.Column="1" Content="Create Account" Click="buttonCreate_Click" />
+        </Grid>
+    </StackPanel>
+</Page>
